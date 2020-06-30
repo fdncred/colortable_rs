@@ -1,3 +1,8 @@
+// Code modeled off this
+// https://github.com/microsoft/terminal/blob/master/src/tools/ColorTool/ColorTool/ColorTable.cs
+
+
+
 
 // const DarkBlack: u16 = 0;
 // const DarkBlue: u16 = 1;
