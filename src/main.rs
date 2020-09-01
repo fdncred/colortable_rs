@@ -100,10 +100,10 @@ pub fn print_table() {
     let ansi_bg_sequences = vec!["40m", "41m", "42m", "43m", "44m", "45m", "46m", "47m", ];
 
     // Print the column header
-    print!("\t");
-    for (bg, bg_color) in ansi_bg_sequences.iter().enumerate() {
-        print!("{: >9}", bg_color);
-        print!(" ");
+    print!("        ");
+    for (_bg, bg_color) in ansi_bg_sequences.iter().enumerate() {
+        print!("{: >10}", bg_color);
+        // print!("");
     }
     print!("\n"); 
 
@@ -113,11 +113,11 @@ pub fn print_table() {
 
         if fg >= 0 { 
             // Write the row header
-            cur_fg = format!("{}\t", fg_color);
-            print!("{: >7}{}", cur_fg, ANSI_RESET);
+            cur_fg = format!("{}    ", fg_color);
+            print!("{: >9}{}", cur_fg, ANSI_RESET);
         }
         if fg == 0 { 
-            cur_fg = format!("{}{}", ANSI_PREFIX, "37m");
+            cur_fg = format!("    {}{}", ANSI_PREFIX, "37m");
         } 
         else {
             cur_fg = format!("{}{}", ANSI_PREFIX, fg_color);
@@ -129,7 +129,7 @@ pub fn print_table() {
             } else {
                 cur_bg = format!("{}{}", ANSI_PREFIX, bg_color);
             }
-            // print!("{}{}{}{}{}", cur_fg, cur_bg, TEST_TEXT, ANSI_RESET);
+            // print!("{: >7}{}{};{}{}", cur_fg, cur_bg, fg_color, bg_color, ANSI_RESET);
             print!("{: >7}{}{};{}{}", cur_fg, cur_bg, fg_color, bg_color, ANSI_RESET);
         }
         print!("\n");
